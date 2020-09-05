@@ -1,0 +1,20 @@
+{
+  "name": "todo_server",
+  "version": "1.0.0",
+  "description": "Backend for the todo app",
+  "main": "app.js",
+  "scripts": {
+    "start-server": "nodemon app.js",
+    "start-client": "cd ../client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run start-server\" \"npm run start-client\""
+  },
+  "author": "Frozen Burrito",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3",
+    "nodemon": "^2.0.4"
+  }
+}

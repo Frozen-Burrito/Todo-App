@@ -1,0 +1,19 @@
+{
+  "name": "todo_app_mern",
+  "version": "1.0.0",
+  "description": "A simple todo app built using the MERN stack",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start-server": "cd ./server && node app.js",
+    "start-client": "cd ./client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run start-server\" \"npm run start-client\""
+  },
+  "author": "Frozen Burrito",
+  "license": "ISC"
+}
