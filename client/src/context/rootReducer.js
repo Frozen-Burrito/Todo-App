@@ -1,6 +1,8 @@
 import { 
     GET_TODOS, 
     ADD_TODOS, 
+    UPDATE_TODO,
+    DELETE_TODO,
     TODO_ERROR 
 } from './actionTypes';
 
@@ -17,6 +19,27 @@ export default ( state, action ) => {
             return {
                 ...state,
                 todos: [...state.todos, action.newTodo]
+            }
+
+        case UPDATE_TODO:
+            return {
+                ...state,
+                todos: state.todos.map((todo, i) => {
+                    if (action.updatedTodo._id === todo._id) {
+                        return {
+                            ...todo,
+                            complete: action.updatedTodo.complete
+                        }
+                    }
+
+                    return todo;
+                })
+            }
+
+        case DELETE_TODO:
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo._id !== action.id)
             }
 
         case TODO_ERROR: 

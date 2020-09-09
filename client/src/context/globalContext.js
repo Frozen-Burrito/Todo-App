@@ -2,7 +2,13 @@ import React, { createContext, useReducer } from 'react';
 import axios from 'axios';
 
 import rootReducer from './rootReducer';
-import { GET_TODOS, TODO_ERROR, ADD_TODOS,  } from './actionTypes';
+import { 
+    GET_TODOS, 
+    ADD_TODOS, 
+    UPDATE_TODO, 
+    DELETE_TODO,
+    TODO_ERROR,  
+} from './actionTypes';
 
 const initState = {
     todos: [],
@@ -58,6 +64,48 @@ export const GlobalProvider = ({ children }) => {
         }
     }
 
+    const updateTodo = async (todo, check) => {
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        try {
+            const response = await axios.put(`/api/v1/todos/${todo._id}`, todo, config);
+            console.log(todo, todo._id);
+
+            dispatch({
+                type: UPDATE_TODO,
+                updatedTodo: response.data.updatedTodo
+            });
+
+        } catch (error) {
+            dispatch({
+                type: TODO_ERROR,
+                data: error,
+            });
+        }
+    }
+
+    const deleteTodo = async (id) => {
+        try {
+            await axios.delete(`/api/v1/todos/${id}`);
+
+            dispatch({
+                type: DELETE_TODO,
+                id
+            });
+
+        } catch (error) {
+            dispatch({
+                type: TODO_ERROR,
+                data: error,
+            });
+        }
+    }
+
     return (
         <GlobalContext.Provider value={{
             todos: state.todos,
@@ -66,6 +114,8 @@ export const GlobalProvider = ({ children }) => {
 
             getTodos,
             addTodo,
+            updateTodo,
+            deleteTodo,
         }}>
             { children }
         </GlobalContext.Provider>
