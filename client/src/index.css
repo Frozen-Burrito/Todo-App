@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,10 +9,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+div.app-main {
+  width: 50%;
+  height: 80vh;
+  position: absolute;
+  top: 50%;
+  margin-top: -40vh;
+  left: 50%;
+  margin-left: -25%;
+} 
 
 .text-strike {
   text-decoration: line-through;

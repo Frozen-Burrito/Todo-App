@@ -3,7 +3,10 @@ import {
     ADD_TODOS, 
     UPDATE_TODO,
     DELETE_TODO,
-    TODO_ERROR 
+    GET_CONFIG,
+    UPDATE_CONFIG,
+    TODO_ERROR, 
+    CONFIG_ERROR
 } from './actionTypes';
 
 export default ( state, action ) => {
@@ -42,7 +45,25 @@ export default ( state, action ) => {
                 todos: state.todos.filter(todo => todo._id !== action.id)
             }
 
+        case GET_CONFIG: 
+            return {
+                ...state,
+                config: action.config
+            }
+
+        case UPDATE_CONFIG:
+            return {
+                ...state,
+                config: action.updatedConfig
+            }
+
         case TODO_ERROR: 
+            return {
+                ...state,
+                error: action.data
+            }
+
+        case CONFIG_ERROR: 
             return {
                 ...state,
                 error: action.data

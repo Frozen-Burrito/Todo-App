@@ -7,7 +7,7 @@ const Todo = require('../../models/todo');
 router.get('/', async ( req, res ) => {
     try {
         const todos = await Todo.find().sort({ date: -1 })
-
+        console.log(todos);
         res.status(200).json({
             success: true,
             todos,

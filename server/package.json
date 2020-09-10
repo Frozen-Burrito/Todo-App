@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start-server": "nodemon app.js",
-    "start-client": "cd ../client && npm run start",
-    "dev": "concurrently --kill-others-on-fail \"npm run start-server\" \"npm run start-client\""
+    "start-client": "cd ../client && npm run start"
   },
   "author": "Frozen Burrito",
   "license": "ISC",
