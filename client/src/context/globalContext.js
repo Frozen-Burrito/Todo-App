@@ -112,41 +112,6 @@ export const GlobalProvider = ({ children }) => {
         }
     }
 
-    const getConfig = async (id) => {
-        try {
-            const response = await axios.get(`/api/v1/app-config/${id}`);
-
-            dispatch({
-                type: GET_CONFIG,
-                config: response.data.config
-            });
-
-        } catch (error) {
-            dispatch({
-                type: CONFIG_ERROR,
-                data: error,
-            });
-        }
-    }
-
-    const updateConfig = async (id) => {
-        try {
-            const config = await axios.get(`/api/v1/app-config/${id}`);
-            const response = await axios.put(`/api/v1/app-config/${id}`, config);
-
-            dispatch({
-                type: UPDATE_CONFIG,
-                updatedConfig: response.data.updatedConfig
-            });
-
-        } catch (error) {
-            dispatch({
-                type: CONFIG_ERROR,
-                data: error,
-            });
-        }
-    }
-
     return (
         <GlobalContext.Provider value={{
             todos: state.todos,
@@ -157,9 +122,6 @@ export const GlobalProvider = ({ children }) => {
             addTodo,
             updateTodo,
             deleteTodo,
-
-            getConfig,
-            updateConfig
         }}>
             { children }
         </GlobalContext.Provider>

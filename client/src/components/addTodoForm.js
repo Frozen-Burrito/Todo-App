@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
 const AddTodoForm = () => {
 
   const [ text, setText ] = useState('');
+  const [description, setDescription] = useState('');
   const { addTodo } = useContext(GlobalContext);
 
   const classes = useStyles();
@@ -21,11 +22,13 @@ const AddTodoForm = () => {
     
     const newTodo = {
       text,
+      description,
       complete: false,
     }
     
     addTodo(newTodo);
     setText('');
+    setDescription('');
   }
 
   return (
@@ -37,6 +40,17 @@ const AddTodoForm = () => {
         fullWidth
         value={ text }
         onChange={e => setText(e.target.value)}
+      />
+
+      <TextField 
+        id="outlined-basic" 
+        className={classes.margin} 
+        label="More about this task"
+        placeholder="Remeber that he likes to go to the park."
+        fullWidth
+        variant="outlined"
+        value={ description }
+        onChange={e => setDescription(e.target.value)}
       />
 
       <Button 

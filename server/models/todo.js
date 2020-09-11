@@ -6,6 +6,11 @@ const TodoSchema = new mongoose.Schema({
         required: true
     },
 
+    description: {
+        type: String,
+        required: true,
+    },
+
     complete: {
         type: Boolean,
         default: false,

@@ -1,7 +1,6 @@
 const express = require('express');
 
 const apiTodos = require('./routes/api/todos');
-const appConfig = require('./routes/api/configuration');
 
 const connectToMongo = require('./config/connectMongoDB');
 
@@ -18,7 +17,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // API routes
 app.use('/api/v1/todos', apiTodos);
-app.use('/api/v1/app-config', appConfig);
 
 const PORT = process.env.PORT || 5000;
 

@@ -1,6 +1,6 @@
 # Todo App
 
-Simple web app that helps you track your tasks.
+Simple web app that helps you track your tasks and get them done.
 
 > In development
 
@@ -28,3 +28,4 @@ The server will run on http://localhost:5000
 * Express
 * MongoDB
 * Material UI
+* Heroku

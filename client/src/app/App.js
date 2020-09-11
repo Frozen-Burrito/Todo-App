@@ -3,13 +3,13 @@ import './App.css';
 
 import { GlobalProvider } from '../context/globalContext';
 
-import ThemeParent from '../theme/themeProvider';
+import ThemeContainer from '../theme/themeContainer';
 
 function App() {
 
   return (
     <GlobalProvider>
-      <ThemeParent />
+      <ThemeContainer />
     </GlobalProvider>
   );
 }

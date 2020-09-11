@@ -13,9 +13,5 @@ export const defaultTheme = (darkEnabled) => createMuiTheme({
         secondary: {
             main: '#536DFE',
         },
-
-        background: {
-            default: '#000'
-        }
     }
 })

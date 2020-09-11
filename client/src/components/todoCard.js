@@ -27,8 +27,6 @@ const TodoCard = ({ todo }) => {
   const [ check, setCheck ] = useState(todo.complete);
   const { updateTodo, deleteTodo } = useContext(GlobalContext);
 
-  const description = 'Curabitur id volutpat risus. Morbi non orci ornare, porttitor nunc non, vehicula enim.';
-
   const checkTask = () => {
     setCheck(!check);
     todo.complete = !check;
@@ -52,7 +50,7 @@ const TodoCard = ({ todo }) => {
       />
       <CardContent className={classes.cardContent}>
         <Typography variant="body2" color="textSecondary" component="p">
-          {description}
+          {todo.description}
         </Typography>
       </CardContent>
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/globalContext';
 
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 
 import TodoCard from './todoCard';
 
@@ -9,6 +9,10 @@ const useStyles = makeStyles(theme => ({
 
     listContainer: {
         padding: theme.spacing(4),
+    },
+
+    secondaryText: {
+        color: theme.palette.text.secondary
     }
 }))
 
@@ -27,7 +31,9 @@ const TodoList = () => {
             { todos.length ? todos.map(todo => (
                 <TodoCard key={todo._id} todo={todo}/>
             )) : (
-                <p>No tasks in sight!</p>
+                <Typography variant="h6" className={classes.secondaryText}>
+                    No tasks in sight!
+                </Typography>
             )}
         </div>
     )

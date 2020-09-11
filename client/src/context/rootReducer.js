@@ -21,7 +21,7 @@ export default ( state, action ) => {
         case ADD_TODOS:
             return {
                 ...state,
-                todos: [...state.todos, action.newTodo]
+                todos: [action.newTodo, ...state.todos]
             }
 
         case UPDATE_TODO:
